@@ -37,7 +37,7 @@ verzichten. Hierfür müssen Sie in der Datei
 
 folgende Zeile auskommentieren:
 
-    <schema>JTODO</schema>
+    <schema>BOOKREMINDER</schema>
 
 Bringt dies keine Besserung, sollten Sie die Zeile wieder einkommentieren.
 
@@ -84,11 +84,11 @@ conf/server.xml:
         className      = "org.apache.catalina.realm.DataSourceRealm"
 
         dataSourceName = "Derby-Sample-Unmanaged"
-        userTable      = "jtodo.jtodo_user"
+        userTable      = "bookreminder.bookreminder_user"
         userNameCol    = "username"
         userCredCol    = "password_hash"
 
-        userRoleTable  = "jtodo.jtodo_user_group"
+        userRoleTable  = "bookreminder.bookreminder_user_group"
         roleNameCol    = "groupname"
     >
         <CredentialHandler
