@@ -39,11 +39,27 @@
 
                     <%-- Eingabefelder --%>
                     <label for="signup_username">
-                        Benutzername:
+                        Nickname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
                         <input type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}">
+                    </div>
+                    
+                    <label for="signup_vorname">
+                        Vorname:
+                        <span class="required">*</span>
+                    </label>
+                    <div class="side-by-side">
+                        <input type="text" name="signup_vorname" value="${signup_form.values["signup_vorname"][0]}">
+                    </div>
+                    
+                    <label for="signup_nachname">
+                        Nachname:
+                        <span class="required">*</span>
+                    </label>
+                    <div class="side-by-side">
+                        <input type="text" name="signup_nachname" value="${signup_form.values["signup_nachname"][0]}">
                     </div>
 
                     <label for="signup_password1">
