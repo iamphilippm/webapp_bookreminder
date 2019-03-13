@@ -34,7 +34,7 @@
                 <div class="column">
                     <%-- Eingabefelder --%>
                     <label for="j_username">
-                        Benutzername:
+                        Nickname:
                         <span class="required">*</span>
                     </label>
                     <input type="text" name="j_username">

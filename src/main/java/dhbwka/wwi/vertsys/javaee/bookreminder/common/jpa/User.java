@@ -37,9 +37,19 @@ public class User implements Serializable {
 
     @Id
     @Column(name = "USERNAME", length = 64)
-    @Size(min = 5, max = 64, message = "Der Benutzername muss zwischen fünf und 64 Zeichen lang sein.")
+    @Size(min = 5, max = 64, message = "Der Nickname muss zwischen fünf und 64 Zeichen lang sein.")
     @NotNull(message = "Der Benutzername darf nicht leer sein.")
     private String username;
+    
+    @Column(name = "VORNAME", length = 64)
+    @Size(min = 5, max = 64, message = "Der Vorname muss zwischen fünf und 64 Zeichen lang sein.")
+    @NotNull(message = "Der Vorname darf nicht leer sein.")
+    private String vorname;
+    
+    @Column(name = "NACHNAME", length = 64)
+    @Size(min = 5, max = 64, message = "Der Nachname muss zwischen fünf und 64 Zeichen lang sein.")
+    @NotNull(message = "Der Nachname darf nicht leer sein.")
+    private String nachname;
     
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen sechs und 64 Zeichen lang sein.")
@@ -67,10 +77,12 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String vorname, String nachname) {
         this.username = username;
         this.password.password = password;
         this.passwordHash = this.hashPassword(password);
+        this.vorname = vorname;
+        this.nachname = nachname;
     }
     //</editor-fold>
 
@@ -81,6 +93,20 @@ public class User implements Serializable {
 
     public void setUsername(String id) {
         this.username = id;
+    }
+    public String getVorname() {
+        return vorname;
+    }
+
+    public void setVorname(String id) {
+        this.vorname = id;
+    }
+    public String getNachname() {
+        return nachname;
+    }
+
+    public void setNachname(String id) {
+        this.nachname = id;
     }
 
     public List<Task> getTasks() {
