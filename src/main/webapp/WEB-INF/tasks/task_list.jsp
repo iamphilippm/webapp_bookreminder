@@ -15,7 +15,7 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Liste der Aufgaben
+        Liste der Bücher
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -41,36 +41,36 @@
         <form method="GET" class="horizontal" id="search">
             <input type="text" name="search_text" value="${param.search_text}" placeholder="Beschreibung"/>
 
-            <select name="search_category">
-                <option value="">Alle Kategorien</option>
+            <select name="search_genre">
+                <option value="">Alle Genres</option>
 
-                <c:forEach items="${categories}" var="category">
-                    <option value="${category.id}" ${param.search_category == category.id ? 'selected' : ''}>
-                        <c:out value="${category.name}" />
+                <c:forEach items="${genres}" var="genre">
+                    <option value="${genre.id}" ${param.search_genre == genre.id ? 'selected' : ''}>
+                        <c:out value="${genre.name}" />
                     </option>
                 </c:forEach>
             </select>
 
-            <select name="search_status">
-                <option value="">Alle Stati</option>
+            <select name="search_medium">
+                <option value="">Alle Medienarten</option>
 
-                <c:forEach items="${statuses}" var="status">
-                    <option value="${status}" ${param.search_status == status ? 'selected' : ''}>
-                        <c:out value="${status.label}"/>
+                <c:forEach items="${mediums}" var="medium">
+                    <option value="${medium}" ${param.search_medium == medium ? 'selected' : ''}>
+                        <c:out value="${medium.label}"/>
                     </option>
                 </c:forEach>
             </select>
 
-            <button class="icon-search" type="submit">
+            <button  type="submit">
                 Suchen
             </button>
         </form>
 
         <%-- Gefundene Aufgaben --%>
         <c:choose>
-            <c:when test="${empty tasks}">
+            <c:when test="${empty books}">
                 <p>
-                    Es wurden keine Aufgaben gefunden. 🐈
+                    Es wurden keine Bücher gefunden.
                 </p>
             </c:when>
             <c:otherwise>
@@ -79,32 +79,34 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Bezeichnung</th>
-                            <th>Kategorie</th>
-                            <th>Eigentümer</th>
-                            <th>Status</th>
-                            <th>Fällig am</th>
+                            <th>Titel</th>
+                            <th>Autor</th>
+                            <th>Genre</th>
+                            <th>Medium</th>
+                            <th>Seitenanzahl</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${tasks}" var="task">
+                    <c:forEach items="${books}" var="book">
                         <tr>
                             <td>
-                                <a href="<c:url value="/app/tasks/task/${task.id}/"/>">
-                                    <c:out value="${task.shortText}"/>
-                                </a>
+                              <!--  <a href="<c:url value="/app/tasks/task/${book.id}"/>"> -->
+                                    <c:out value="${book.title}"/>
                             </td>
                             <td>
-                                <c:out value="${task.category.name}"/>
+                                <c:out value="${book.author}"/>
                             </td>
                             <td>
-                                <c:out value="${task.owner.username}"/>
+                                <c:out value="${book.genre.name}"/>
                             </td>
                             <td>
-                                <c:out value="${task.status.label}"/>
+                                <c:out value="${book.medium}"/>
                             </td>
                             <td>
-                                <c:out value="${utils.formatDate(task.dueDate)}"/>
-                                <c:out value="${utils.formatTime(task.dueTime)}"/>
+                                <c:out value="${book.current_page}"/>
+                                <p>
+                                /
+                                </p>
+                                <c:out value="${book.total_pages}"/>
                             </td>
                         </tr>
                     </c:forEach>
