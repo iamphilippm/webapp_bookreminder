@@ -71,7 +71,7 @@ public class BookBean extends EntityBean<Book, Long> {
         Predicate p = cb.conjunction();
         
         if (search != null && !search.trim().isEmpty()) {
-            p = cb.and(p, cb.like(from.get("shortText"), "%" + search + "%"));
+            p = cb.and(p, cb.like(from.get("title"), "%" + search + "%"));
             query.where(p);
         }
         
@@ -87,6 +87,7 @@ public class BookBean extends EntityBean<Book, Long> {
             query.where(p);
         }
         
-        return em.createQuery(query).getResultList();
+        List<Book> books = em.createQuery(query).getResultList();
+        return books;
     }
 }
