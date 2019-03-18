@@ -103,9 +103,7 @@
                             </td>
                             <td>
                                 <c:out value="${book.current_page}"/>
-                                <p>
                                 /
-                                </p>
                                 <c:out value="${book.total_pages}"/>
                             </td>
                         </tr>
