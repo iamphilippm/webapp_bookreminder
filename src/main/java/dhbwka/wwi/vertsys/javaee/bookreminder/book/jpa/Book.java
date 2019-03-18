@@ -51,7 +51,7 @@ public class Book implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @NotNull
-    private Medium medium = Medium.BUCH;
+    private Medium medium;
 
     @Column(length = 64)
     @NotNull(message = "Das Buch muss eine Seitenzahl haben.")

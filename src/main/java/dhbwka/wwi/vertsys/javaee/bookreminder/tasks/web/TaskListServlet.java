@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet für die tabellarische Auflisten der Aufgaben.
  */
-@WebServlet(urlPatterns = {"/app/tasks/list/"})
+    @WebServlet(urlPatterns = {"/app/tasks/list/"})
 public class TaskListServlet extends HttpServlet {
 
     @EJB

@@ -21,10 +21,10 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @RolesAllowed("app-user")
-public class GenreBean extends EntityBean<Category, Long> {
+public class GenreBean extends EntityBean<Genre, Long> {
 
     public GenreBean() {
-        super(Category.class);
+        super(Genre.class);
     }
 
     /**
