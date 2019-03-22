@@ -51,7 +51,7 @@ public class BookListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Verfügbare Kategorien und Stati für die Suchfelder ermitteln
+        // Verfügbare Genren und Medien für die Suchfelder ermitteln
         request.setAttribute("genres", this.genreBean.findAllSorted());
         request.setAttribute("mediums", Medium.values());
 
