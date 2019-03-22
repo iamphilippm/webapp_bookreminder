@@ -1,12 +1,3 @@
-<%-- 
-    Copyright © 2018 Dennis Schulmeister-Zimolong
-
-    E-Mail: dhbw@windows3.de
-    Webseite: https://www.wpvs.de/
-
-    Dieser Quellcode ist lizenziert unter einer
-    Creative Commons Namensnennung 4.0 International Lizenz.
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
@@ -17,10 +8,10 @@
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
-                Aufgabe bearbeiten
+                PM Buch bearbeiten
             </c:when>
             <c:otherwise>
-                Aufgabe anlegen
+                PM Buch anlegen
             </c:otherwise>
         </c:choose>
     </jsp:attribute>
@@ -33,7 +24,7 @@
         <div class="menuitem">
             <a href="<c:url value="/app/dashboard/"/>">Dashboard</a>
         </div>
-        
+
         <div class="menuitem">
             <a href="<c:url value="/app/tasks/list/"/>">Liste</a>
         </div>
@@ -51,10 +42,23 @@
                     <input type="text" name="task_owner" value="${task_form.values["task_owner"][0]}" readonly="readonly">
                 </div>
 
-                <label for="task_category">Kategorie:</label>
+                <label for="task_short_text">
+                    Titel:
+                    <span class="required">*</span>
+                </label>
+                <div class="side-by-side">
+                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                </div>
+
+                <label for="task_short_text">Autor:</label>
+                <div class="side-by-side">
+                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                </div>
+
+                <label for="task_category">Genre:</label>
                 <div class="side-by-side">
                     <select name="task_category">
-                        <option value="">Keine Kategorie</option>
+                        <option value="">Bitte auswählen...</option>
 
                         <c:forEach items="${categories}" var="category">
                             <option value="${category.id}" ${task_form.values["task_category"][0] == category.id.toString() ? 'selected' : ''}>
@@ -64,21 +68,10 @@
                     </select>
                 </div>
 
-                <label for="task_due_date">
-                    Fällig am:
-                    <span class="required">*</span>
-                </label>
+                <label for="task_category">Medium:</label>
                 <div class="side-by-side">
-                    <input type="text" name="task_due_date" value="${task_form.values["task_due_date"][0]}">
-                    <input type="text" name="task_due_time" value="${task_form.values["task_due_time"][0]}">
-                </div>
-
-                <label for="task_status">
-                    Status:
-                    <span class="required">*</span>
-                </label>
-                <div class="side-by-side margin">
-                    <select name="task_status">
+                    <select name="task_category">
+                        <option value="">Bitte auswählen...</option>
                         <c:forEach items="${statuses}" var="status">
                             <option value="${status}" ${task_form.values["task_status"][0] == status ? 'selected' : ''}>
                                 <c:out value="${status.label}"/>
@@ -87,33 +80,35 @@
                     </select>
                 </div>
 
-                <label for="task_short_text">
-                    Bezeichnung:
-                    <span class="required">*</span>
-                </label>
-                <div class="side-by-side">
-                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
-                </div>
+                <label for="task_short_text"> Seitenzahl [gesamt]:
+                    <div class="side-by-side">
+                        <input name="sidessum" type="number" min="0" max="2000" step="1" value="0"></label>
+                    </div> 
+                    
+                <label for="task_short_text"> Seitenzahl [aktuell]:
+                    <div class="side-by-side">
+                        <input name="sidessum" type="number" min="0" max="2000" step="1" value="0"></label>
+                    </div>
+                    
+                    <label for="task_long_text">
+                        Kommentar:
+                    </label>
+                    <div class="side-by-side">
+                        <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>
+                    </div>
 
-                <label for="task_long_text">
-                    Beschreibung:
-                </label>
-                <div class="side-by-side">
-                    <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>
-                </div>
-
-                <%-- Button zum Abschicken --%>
-                <div class="side-by-side">
-                    <button class="icon-pencil" type="submit" name="action" value="save">
-                        Sichern
-                    </button>
-
-                    <c:if test="${edit}">
-                        <button class="icon-trash" type="submit" name="action" value="delete">
-                            Löschen
+                    <%-- Button zum Abschicken --%>
+                    <div class="side-by-side">
+                        <button class="icon-pencil" type="submit" name="action" value="save">
+                            Sichern
                         </button>
-                    </c:if>
-                </div>
+
+                        <c:if test="${edit}">
+                            <button class="icon-trash" type="submit" name="action" value="delete">
+                                Löschen
+                            </button>
+                        </c:if>
+                    </div>
             </div>
 
             <%-- Fehlermeldungen --%>
@@ -121,7 +116,7 @@
                 <ul class="errors">
                     <c:forEach items="${task_form.errors}" var="error">
                         <li>${error}</li>
-                    </c:forEach>
+                        </c:forEach>
                 </ul>
             </c:if>
         </form>

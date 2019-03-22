@@ -28,7 +28,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/task/new/"/>">Buch anlegen</a>
+            <a href="<c:url value="/app/tasks/task/new/"/>">PM Buch anlegen</a>
         </div>
 
         <div class="menuitem">
