@@ -29,6 +29,8 @@ import javax.persistence.criteria.Root;
 @RolesAllowed("app-user")
 public class BookBean extends EntityBean<Book, Long> { 
    
+    
+    
     public BookBean() {
         super(Book.class);
     }
@@ -38,10 +40,11 @@ public class BookBean extends EntityBean<Book, Long> {
      * @param username Nickname
      * @return Alle Aufgaben des Benutzers
      */
-    public List<Task> findByUsername(String username) {
-        return em.createQuery("SELECT b FROM Book b WHERE b.owner.username = :username ORDER BY b.title")
+    public List<Book> findByUsername(String username) {
+        return em.createQuery("SELECT b FROM Book b WHERE b.owner = :username ORDER BY b.title")
                  .setParameter("username", username)
                  .getResultList();
+        
     }
     
     /**
@@ -67,7 +70,7 @@ public class BookBean extends EntityBean<Book, Long> {
         // ORDER BY title
         query.orderBy(cb.asc(from.get("title")));
         
-        // WHERE t.shortText LIKE :search
+        // WHERE t.title LIKE :search
         Predicate p = cb.conjunction();
         
         if (search != null && !search.trim().isEmpty()) {
@@ -89,5 +92,47 @@ public class BookBean extends EntityBean<Book, Long> {
         
         List<Book> books = em.createQuery(query).getResultList();
         return books;
+    }
+    
+    public List<Book> searchAllBooksOfUser(String search,Genre genre, Medium medium, String username){
+                // Hilfsobjekt zum Bauen des Query
+        CriteriaBuilder cb = this.em.getCriteriaBuilder();
+        
+        // SELECT t FROM Book t
+        CriteriaQuery<Book> query = cb.createQuery(Book.class);
+        Root<Book> from = query.from(Book.class);
+        query.select(from);
+
+        // ORDER BY title
+        query.orderBy(cb.asc(from.get("title")));
+        
+        // WHERE t.title LIKE :search
+        Predicate p = cb.conjunction();
+        
+        if (search != null && !search.trim().isEmpty()) {
+            p = cb.and(p, cb.like(from.get("title"), "%" + search + "%"));
+            query.where(p);
+        }
+        
+        // WHERE t.genre = :genre
+        if (genre != null) {
+            p = cb.and(p, cb.equal(from.get("genre"), genre));
+            query.where(p);
+        }
+        
+        // WHERE t.medium = :medium
+        if (medium != null) {
+            p = cb.and(p, cb.equal(from.get("medium"), medium));
+            query.where(p);
+        }
+        
+        // WHERE t.owner = :username 
+        p = cb.and(p, cb.equal(from.get("owner"), username));
+        query.where(p);
+        
+        List<Book> books = em.createQuery(query).getResultList();
+        return books;
+        
+     
     }
 }
