@@ -15,6 +15,7 @@ import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.BUCH;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.FACHLITERATUR;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.HOERBUCH;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.MAGAZIN;
+import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.UserBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.WebUtils;
 import dhbwka.wwi.vertsys.javaee.bookreminder.dashboard.ejb.DashboardContentProvider;
 import dhbwka.wwi.vertsys.javaee.bookreminder.dashboard.ejb.DashboardSection;
@@ -34,6 +35,9 @@ public class DashboardContent implements DashboardContentProvider {
 
     @EJB
     private BookBean bookBean;
+    
+    @EJB
+    private UserBean userBean; 
 
     /**
      * Vom Dashboard aufgerufenen Methode, um die anzuzeigenden Rubriken und
@@ -130,7 +134,7 @@ public class DashboardContent implements DashboardContentProvider {
      * @return
      */
     private DashboardTile createTile(Genre genre, Medium medium, String label, String cssClass, String icon) {
-        int amount = bookBean.search(null, genre, medium).size();
+        int amount = bookBean.searchAllBooksOfUser(null, genre, medium, this.userBean.getCurrentUser().getUsername()).size();
         String href = "/app/tasks/list/";
 
         if (genre != null) {
