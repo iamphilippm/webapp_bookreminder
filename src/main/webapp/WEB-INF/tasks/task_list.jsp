@@ -93,7 +93,7 @@
                                     <c:out value="${book.title}"/>
                             </td>
                             <td>
-                                <c:out value="${book.author}"/>
+                                <c:out value="${book.author}"/> 
                             </td>
                             <td>
                                 <c:out value="${book.genre.name}"/>
