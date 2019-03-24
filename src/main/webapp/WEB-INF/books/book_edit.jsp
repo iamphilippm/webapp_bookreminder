@@ -1,3 +1,9 @@
+<%-- 
+    Document   : book_edit
+    Created on : Mar 23, 2019, 5:25:33 PM
+    Author     : D070694
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
@@ -8,16 +14,16 @@
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
-                PM Buch bearbeiten
+                Buch bearbeiten
             </c:when>
             <c:otherwise>
-                PM Buch anlegen
+                Buch anlegen
             </c:otherwise>
         </c:choose>
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/task_edit.css"/>" />
+        <link rel="stylesheet" href="<c:url value="/css/book_edit.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="menu">
@@ -37,22 +43,22 @@
                 <input type="hidden" name="csrf_token" value="${csrf_token}">
 
                 <%-- Eingabefelder --%>
-                <label for="task_owner">Eigentümer:</label>
+                <label for="book_owner">Eigentümer:</label>
                 <div class="side-by-side">
-                    <input type="text" name="task_owner" value="${task_form.values["task_owner"][0]}" readonly="readonly">
+                    <input type="text" name="book_owner" value="${book_form.values["book_owner"][0]}" readonly="readonly">
                 </div>
 
-                <label for="task_short_text">
+                <label for="book_title">
                     Titel:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
-                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                    <input type="text" name="book_title" value="${book_form.values["book_title"][0]}">
                 </div>
 
-                <label for="task_short_text">Autor:</label>
+                <label for="book_author">Autor:</label>
                 <div class="side-by-side">
-                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                    <input type="text" name="book_author" value="${book_form.values["book_author"][0]}">
                 </div>
 
                 <label for="book_genre">Genre:</label>
@@ -60,9 +66,9 @@
                     <select name="book_genre">
                         <option value="">Bitte auswählen...</option>
 
-                        <c:forEach items="${categories}" var="category">
-                            <option value="${category.id}" ${task_form.values["task_category"][0] == category.id.toString() ? 'selected' : ''}>
-                                <c:out value="${category.name}" />
+                        <c:forEach items="${genres}" var="genre">
+                            <option value="${genre.id}" ${book_form.values["book_genre"][0] == genre.id.toString() ? 'selected' : ''}>
+                                <c:out value="${genre.name}" />
                             </option>
                         </c:forEach>
                     </select>
@@ -73,28 +79,28 @@
                     <select name="book_medium">
                         <option value="">Bitte auswählen...</option>
                         <c:forEach items="${mediums}" var="medium">
-                            <option value="${status}" ${task_form.values["task_status"][0] == medium ? 'selected' : ''}>
+                            <option value="${medium}" ${book_form.values["book_medium"][0] == medium ? 'selected' : ''}>
                                 <c:out value="${medium.label}"/>
                             </option>
                         </c:forEach>
                     </select>
                 </div>
 
-                <label for="task_short_text"> Seitenzahl [gesamt]:
+                <label for="book_sumpages"> Seitenzahl [gesamt]:
                     <div class="side-by-side">
-                        <input name="sidessum" type="number" min="0" max="2000" step="1" value="0"></label>
+                        <input name="sumpages" type="number" min="0" max="2000" step="1" value="0"></label>
                     </div> 
                     
-                <label for="task_short_text"> Seitenzahl [aktuell]:
+                <label for="book_curpages"> Seitenzahl [aktuell]:
                     <div class="side-by-side">
-                        <input name="sidessum" type="number" min="0" max="2000" step="1" value="0"></label>
+                        <input name="curpages" type="number" min="0" max="2000" step="1" value="0"></label>
                     </div>
                     
-                    <label for="task_long_text">
+                    <label for="book_comment">
                         Kommentar:
                     </label>
                     <div class="side-by-side">
-                        <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>
+                        <textarea name="book_comment"><c:out value="${book_form.values['book_comment'][0]}"/></textarea>
                     </div>
 
                     <%-- Button zum Abschicken --%>
@@ -112,9 +118,9 @@
             </div>
 
             <%-- Fehlermeldungen --%>
-            <c:if test="${!empty task_form.errors}">
+            <c:if test="${!empty book_form.errors}">
                 <ul class="errors">
-                    <c:forEach items="${task_form.errors}" var="error">
+                    <c:forEach items="${book_form.errors}" var="error">
                         <li>${error}</li>
                         </c:forEach>
                 </ul>

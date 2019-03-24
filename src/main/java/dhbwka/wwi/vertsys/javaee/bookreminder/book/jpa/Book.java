@@ -10,7 +10,9 @@
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import javax.persistence.Column;
+import javax.persistence.Lob;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -60,6 +62,9 @@ public class Book implements Serializable {
     @Column(length = 64)
     @NotNull(message = "Du musst angeben wie weit du schon gelesen hast.")
     private int current_page;
+
+    @Lob
+    private String comment = "";
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public Book() {
@@ -113,6 +118,10 @@ public class Book implements Serializable {
         this.current_page = current_page;
     }
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -139,6 +148,14 @@ public class Book implements Serializable {
 
     public int getCurrent_page() {
         return current_page;
+    }
+
+    public String getComment(){
+        return comment;
+    }
+
+    public String toString(int page) {
+        return Integer.toString(page);
     }
     //</editor-fold>
     
