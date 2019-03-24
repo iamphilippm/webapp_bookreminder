@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = "/app/tasks/task/*")
+@WebServlet(urlPatterns = "/app/books/book/*")
 public class BookEditServlet extends HttpServlet {
 
     @EJB
@@ -146,7 +146,7 @@ public class BookEditServlet extends HttpServlet {
         // Weiter zur nächsten Seite
         if (errors.isEmpty()) {
             // Keine Fehler: Startseite aufrufen
-            response.sendRedirect(WebUtils.appUrl(request, "/app/books/list/"));
+            response.sendRedirect(WebUtils.appUrl(request, "/app/tasks/list/"));
         } else {
             // Fehler: Formuler erneut anzeigen
             FormValues formValues = new FormValues();
@@ -224,9 +224,11 @@ public class BookEditServlet extends HttpServlet {
             });
         }
 
-        values.put("book_medium", new String[]{
-            book.getMedium().toString()
-        });
+        if (book.getMedium() != null) {
+            values.put("book_medium", new String[]{
+                "" + book.getMedium().toString()
+            });
+        }
 
         values.put("book_title", new String[]{
             book.getTitle()

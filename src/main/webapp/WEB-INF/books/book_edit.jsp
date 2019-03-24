@@ -88,12 +88,12 @@
 
                 <label for="book_sumpages"> Seitenzahl [gesamt]:
                     <div class="side-by-side">
-                        <input name="sumpages" type="number" min="0" max="2000" step="1" value="0"></label>
+                        <input name="book_sumpages" type="number" min="0" max="2000" step="1" value="0"></label>
                     </div> 
                     
                 <label for="book_curpages"> Seitenzahl [aktuell]:
                     <div class="side-by-side">
-                        <input name="curpages" type="number" min="0" max="2000" step="1" value="0"></label>
+                        <input name="book_curpages" type="number" min="0" max="2000" step="1" value="0"></label>
                     </div>
                     
                     <label for="book_comment">
