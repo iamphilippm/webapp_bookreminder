@@ -15,7 +15,7 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Kategorien bearbeiten
+        Genres bearbeiten
     </jsp:attribute>
 
     <jsp:attribute name="head">
@@ -39,9 +39,8 @@
 
             <%-- Feld zum Anlegen einer neuen Kategorie --%>
             <div class="column margin">
-                <label for="j_username">Neue Kategorie:</label>
+                <label for="j_username">Neues Genre anlegen:</label>
                 <input type="text" name="name" value="${categories_form.values["name"][0]}">
-
                 <button type="submit" name="action" value="create" class="icon-pencil">
                     Anlegen
                 </button>
@@ -58,18 +57,18 @@
 
             <%-- Vorhandene Kategorien --%>
             <c:choose>
-                <c:when test="${empty categories}">
+                <c:when test="${empty genres}">
                     <p>
-                        Es sind noch keine Kategorien vorhanden. 🐏
+                        Es sind noch keine Genres vorhanden. 
                     </p>
                 </c:when>
                 <c:otherwise>
                     <div>
                         <div class="margin">
-                            <c:forEach items="${categories}" var="category">
-                                <input type="checkbox" name="category" id="${'category-'.concat(category.id)}" value="${category.id}" />
-                                <label for="${'category-'.concat(category.id)}">
-                                    <c:out value="${category.name}"/>
+                            <c:forEach items="${genres}" var="genre">
+                                <input type="checkbox" name="genre" id="${'genre-'.concat(genre.id)}" value="${genre.id}" />
+                                <label for="${'genre-'.concat(genre.id)}">
+                                    <c:out value="${genre.name}"/>
                                 </label>
                                 <br />
                             </c:forEach>
