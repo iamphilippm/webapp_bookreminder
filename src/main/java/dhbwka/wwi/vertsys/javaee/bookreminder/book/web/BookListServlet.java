@@ -36,7 +36,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author D070495
  */
-@WebServlet(name = "BookListServlet", urlPatterns = {"/app/tasks/list/"})
+
+//url geändert lol
+//@WebServlet(name = "BookListServlet", urlPatterns = {"/app/tasks/list/"})
+@WebServlet(name = "BookListServlet", urlPatterns = {"/app/books/list/"})
 public class BookListServlet extends HttpServlet {
  @EJB
     private GenreBean genreBean;
@@ -83,7 +86,7 @@ public class BookListServlet extends HttpServlet {
 
         //List<Book> books = this.bookBean.search(searchText, genre, medium);
         //List<Book> books2 = this.bookBean.findByUsername(this.userBean.getCurrentUser().getUsername());
-        List<Book> books = this.bookBean.searchAllBooksOfUser(searchText, genre, medium, this.userBean.getCurrentUser().getUsername());
+        List<Book> books = this.bookBean.searchAllBooksOfUser(searchText, genre, medium, this.userBean.getCurrentUser());
         
         
         request.setAttribute("books", books);  

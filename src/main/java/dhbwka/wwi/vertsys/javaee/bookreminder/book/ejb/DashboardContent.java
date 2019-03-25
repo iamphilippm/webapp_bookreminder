@@ -134,8 +134,8 @@ public class DashboardContent implements DashboardContentProvider {
      * @return
      */
     private DashboardTile createTile(Genre genre, Medium medium, String label, String cssClass, String icon) {
-        int amount = bookBean.searchAllBooksOfUser(null, genre, medium, this.userBean.getCurrentUser().getUsername()).size();
-        String href = "/app/tasks/list/";
+        int amount = bookBean.searchAllBooksOfUser(null, genre, medium, this.userBean.getCurrentUser()).size();
+        String href = "/app/books/list/";
 
         if (genre != null) {
             href = WebUtils.addQueryParameter(href, "search_genre", "" + genre.getId());

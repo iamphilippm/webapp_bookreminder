@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa;
 
+import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.persistence.Column;
@@ -40,9 +41,10 @@ public class Book implements Serializable {
     @NotNull(message = "Das Buch muss einen Titel haben.")
     private String title;
     
-    @Column(length = 64)
+   // @Column(length = 64)
+    @ManyToOne
     @NotNull(message = "Das Buch muss einen Eigentümer haben.")
-    private String owner;
+    private User owner;
 
     @Column(length = 64)
     @NotNull(message = "Das Buch muss einen Autor haben.")
@@ -70,7 +72,7 @@ public class Book implements Serializable {
     public Book() {
     }
 
-    public Book(String title, String owner, String author, Genre genre, Medium medium, int total_pages, int current_page) {
+    public Book(String title, User owner, String author, Genre genre, Medium medium, int total_pages, int current_page) {
         this.title = title;
         this.owner = owner;
         this.author = author;
@@ -94,7 +96,7 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 
@@ -126,7 +128,7 @@ public class Book implements Serializable {
         return title;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 

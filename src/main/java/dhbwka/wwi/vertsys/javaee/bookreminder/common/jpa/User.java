@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "BOOKREMINDER_USER")
-public class User implements Serializable {
+public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
@@ -50,6 +50,8 @@ public class User implements Serializable {
     @Size(min = 2, max = 64, message = "Der Nachname muss zwischen 2 und 64 Zeichen lang sein.")
     @NotNull(message = "Der Nachname darf nicht leer sein.")
     private String nachname;
+
+
     
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen sechs und 64 Zeichen lang sein.")
@@ -72,6 +74,10 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     List<Task> tasks = new ArrayList<>();
+
+
+    
+    
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public User() {

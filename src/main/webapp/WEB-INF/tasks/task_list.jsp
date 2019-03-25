@@ -28,7 +28,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/task/new/"/>">Buch anlegen</a>
+            <a href="<c:url value="/app/books/book/"/>">Buch anlegen</a>
         </div>
 
         <div class="menuitem">
@@ -89,7 +89,7 @@
                     <c:forEach items="${books}" var="book">
                         <tr>
                             <td>
-                              <!--  <a href="<c:url value="/app/tasks/task/${book.id}"/>"> -->
+                              <!--  <a href="<c:url value="/app/books/book/${book.id}"/>"> -->
                                     <c:out value="${book.title}"/>
                             </td>
                             <td>

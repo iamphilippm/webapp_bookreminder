@@ -13,12 +13,13 @@ import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.EntityBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Task;
+import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -94,7 +95,7 @@ public class BookBean extends EntityBean<Book, Long> {
         return books;
     }
     
-    public List<Book> searchAllBooksOfUser(String search,Genre genre, Medium medium, String username){
+    public List<Book> searchAllBooksOfUser(String search,Genre genre, Medium medium, User username){
                 // Hilfsobjekt zum Bauen des Query
         CriteriaBuilder cb = this.em.getCriteriaBuilder();
         
@@ -126,8 +127,10 @@ public class BookBean extends EntityBean<Book, Long> {
             query.where(p);
         }
         
+        //Path<User> test = from.get("owner").get("username");
         // WHERE t.owner = :username 
-        p = cb.and(p, cb.equal(from.get("owner"), username));
+        
+        p = cb.and(p, cb.equal(from.get("owner").get("username") , username.getUsername()));
         query.where(p);
         
         List<Book> books = em.createQuery(query).getResultList();

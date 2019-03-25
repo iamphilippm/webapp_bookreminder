@@ -104,7 +104,6 @@ public class BookEditServlet extends HttpServlet {
         // Formulareingaben prüfen
         List<String> errors = new ArrayList<>();
 
-        String owner = request.getParameter("book_owner");
         String genre = request.getParameter("book_genre");
         String author = request.getParameter("book_author");
         String sumpages = request.getParameter("book_sumpages");
@@ -128,11 +127,11 @@ public class BookEditServlet extends HttpServlet {
         } catch (IllegalArgumentException ex) {
             errors.add("Das ausgewählte Medium ist nicht vorhanden.");
         }
-
+        
+        
         book.setTitle(title);
         book.setAuthor(author);
         book.setComment(comment);
-        book.setOwner(owner);
         book.setTotal_pages(Integer.parseInt(sumpages));
         book.setCurrent_page(Integer.parseInt(curpages));
 
@@ -146,7 +145,7 @@ public class BookEditServlet extends HttpServlet {
         // Weiter zur nächsten Seite
         if (errors.isEmpty()) {
             // Keine Fehler: Startseite aufrufen
-            response.sendRedirect(WebUtils.appUrl(request, "/app/tasks/list/"));
+            response.sendRedirect(WebUtils.appUrl(request, "/app/books/list/"));
         } else {
             // Fehler: Formuler erneut anzeigen
             FormValues formValues = new FormValues();
@@ -176,14 +175,14 @@ public class BookEditServlet extends HttpServlet {
         this.bookBean.delete(book);
 
         // Zurück zur Übersicht
-        response.sendRedirect(WebUtils.appUrl(request, "/app/tasks/list/"));
+        response.sendRedirect(WebUtils.appUrl(request, "/app/books/list/"));
     }
 
    
     private Book getRequestedBook(HttpServletRequest request) {
         // Zunächst davon ausgehen, dass ein neuer Datensatz angelegt werden soll
         Book book = new Book();
-        book.setOwner(this.userBean.getCurrentUser().toString());
+        book.setOwner(this.userBean.getCurrentUser());
 
         // ID aus der URL herausschneiden
         String bookId = request.getPathInfo();
@@ -215,7 +214,7 @@ public class BookEditServlet extends HttpServlet {
         int current = book.getCurrent_page();
 
         values.put("book_owner", new String[]{
-            book.getOwner()
+            book.getOwner().getUsername()
         });
 
         if (book.getGenre() != null) {
