@@ -13,7 +13,7 @@ import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.BUCH;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.FACHLITERATUR;
-import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.HOERBUCH;
+import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.EBOOK;
 import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.MAGAZIN;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.UserBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.WebUtils;
@@ -105,7 +105,7 @@ public class DashboardContent implements DashboardContentProvider {
                 case MAGAZIN:
                     icon = "ok";
                     break;
-                case HOERBUCH:
+                case EBOOK:
                     icon = "cancel";
                     break;
                 //case POSTPONED:
