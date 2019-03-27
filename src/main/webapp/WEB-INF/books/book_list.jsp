@@ -85,7 +85,7 @@
                     <c:forEach items="${books}" var="book">
                         <tr>
                             <td>
-                              <!--  <a href="<c:url value="/app/books/book/${book.id}"/>"> -->
+                            <a href="<c:url value="/app/books/book/${book.id}"/>">
                                     <c:out value="${book.title}"/>
                             </td>
                             <td>

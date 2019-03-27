@@ -13,7 +13,7 @@ package dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa;
  * Medium eines Buches.
  */
 public enum Medium {
-    BUCH, ZEITUNG, MAGAZIN, EBOOK;
+    Buch, Zeitung, Magazin, eBook;
 
     /**
      * Bezeichnung ermitteln
@@ -22,13 +22,13 @@ public enum Medium {
      */
     public String getLabel() {
         switch (this) {
-            case BUCH:
+            case Buch:
                 return "Bücher";
-            case ZEITUNG:
+            case Zeitung:
                 return "Zeitungen";
-            case MAGAZIN:
+            case Magazin:
                 return "Magazine";
-            case EBOOK:
+            case eBook:
                 return "eBooks";
             default:
                 return this.toString();

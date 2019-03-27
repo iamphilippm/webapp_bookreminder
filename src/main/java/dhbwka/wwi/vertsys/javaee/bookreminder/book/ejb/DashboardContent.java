@@ -11,10 +11,10 @@ package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium;
-import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.BUCH;
-import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.ZEITUNG;
-import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.EBOOK;
-import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.MAGAZIN;
+import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.Buch;
+import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.Zeitung;
+import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.eBook;
+import static dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium.Magazin;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.UserBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.WebUtils;
 import dhbwka.wwi.vertsys.javaee.bookreminder.dashboard.ejb.DashboardContentProvider;
@@ -96,16 +96,16 @@ public class DashboardContent implements DashboardContentProvider {
             String icon = "";
 
             switch (medium) {
-                case BUCH:
+                case Buch:
                     icon = "doc-text";
                     break;
-                case ZEITUNG:
+                case Zeitung:
                     icon = "rocket";
                     break;
-                case MAGAZIN:
+                case Magazin:
                     icon = "ok";
                     break;
-                case EBOOK:
+                case eBook:
                     icon = "cancel";
                     break;
                 //case POSTPONED:

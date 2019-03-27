@@ -70,6 +70,7 @@
     </security-role>
     
     <!-- ToDO Filter von Martin einbinden um auth-method FORM zu beeinflussen -->
+    <!-- ToDO UniCode Filter parallel zu Martins Filter einbinden um Umlaute evtl richtig darzustellen -->
     
     <!--
         Definition der JSP-Dateien mit dem Loginformular und einer Fehlerseite,
