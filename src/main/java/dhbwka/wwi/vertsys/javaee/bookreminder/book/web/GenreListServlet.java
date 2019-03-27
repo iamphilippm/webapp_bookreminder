@@ -1,24 +1,11 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
-package dhbwka.wwi.vertsys.javaee.bookreminder.tasks.web;
+package dhbwka.wwi.vertsys.javaee.bookreminder.book.web;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.BookBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.GenreBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.FormValues;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.ejb.CategoryBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.ejb.TaskBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.ValidationBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Category;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Task;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
@@ -31,11 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Seite zum Anzeigen und Bearbeiten der Kategorien. Die Seite besitzt ein
- * Formular, mit dem ein neue Kategorie angelegt werden kann, sowie eine Liste,
- * die zum Löschen der Kategorien verwendet werden kann.
+ *
+ * @author D070694
  */
-@WebServlet(urlPatterns = {"/app/tasks/categories/"})
+@WebServlet(urlPatterns = {"/app/books/genres/"})
 public class GenreListServlet extends HttpServlet {
 
     @EJB
@@ -55,12 +41,12 @@ public class GenreListServlet extends HttpServlet {
         request.setAttribute("genres", this.genreBean.findAllSorted());
 
         // Anfrage an dazugerhörige JSP weiterleiten
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/tasks/category_list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/books/genre_list.jsp");
         dispatcher.forward(request, response);
 
         // Alte Formulardaten aus der Session entfernen
         HttpSession session = request.getSession();
-        session.removeAttribute("categories_form");
+        session.removeAttribute("genres_form");
     }
 
     @Override
@@ -85,7 +71,7 @@ public class GenreListServlet extends HttpServlet {
     }
 
     /**
-     * Aufgerufen in doPost(): Neue Kategorie anlegen
+     * Aufgerufen in doPost(): Neue Genre anlegen
      *
      * @param request
      * @param response
@@ -113,7 +99,7 @@ public class GenreListServlet extends HttpServlet {
             formValues.setErrors(errors);
 
             HttpSession session = request.getSession();
-            session.setAttribute("categories_form", formValues);
+            session.setAttribute("genres_form", formValues);
         }
 
         response.sendRedirect(request.getRequestURI());
@@ -169,5 +155,6 @@ public class GenreListServlet extends HttpServlet {
         // Browser auffordern, die Seite neuzuladen
         response.sendRedirect(request.getRequestURI());
     }
-
+    
 }
+

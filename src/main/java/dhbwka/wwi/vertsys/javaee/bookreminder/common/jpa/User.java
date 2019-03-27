@@ -4,7 +4,7 @@
  */
 package dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa;
 
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Task;
+import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -73,7 +73,7 @@ public class User implements Serializable{
     List<String> groups = new ArrayList<>();
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    List<Task> tasks = new ArrayList<>();
+    List<Book> books = new ArrayList<>();
 
 
     
@@ -115,12 +115,12 @@ public class User implements Serializable{
         this.nachname = id;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
     //</editor-fold>
 

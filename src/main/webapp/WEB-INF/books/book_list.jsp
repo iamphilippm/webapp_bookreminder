@@ -1,12 +1,9 @@
 <%-- 
-    Copyright © 2018 Dennis Schulmeister-Zimolong
-
-    E-Mail: dhbw@windows3.de
-    Webseite: https://www.wpvs.de/
-
-    Dieser Quellcode ist lizenziert unter einer
-    Creative Commons Namensnennung 4.0 International Lizenz.
+    Document   : book_list
+    Created on : Mar 27, 2019, 11:19:53 AM
+    Author     : D070694
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
@@ -19,7 +16,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/task_list.css"/>" />
+        <link rel="stylesheet" href="<c:url value="/css/book_list.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="menu">
@@ -32,7 +29,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/categories/"/>">Genre bearbeiten</a>
+            <a href="<c:url value="/app/books/genres/"/>">Genre bearbeiten</a>
         </div>
     </jsp:attribute>
 
@@ -66,7 +63,6 @@
             </button>
         </form>
 
-        <%-- Gefundene Aufgaben --%>
         <c:choose>
             <c:when test="${empty books}">
                 <p>

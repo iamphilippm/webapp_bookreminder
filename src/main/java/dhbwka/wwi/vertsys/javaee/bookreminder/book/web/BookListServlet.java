@@ -1,12 +1,3 @@
-/*
- * Copyright © 2019 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.web;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.BookBean;
@@ -15,17 +6,9 @@ import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.UserBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.ejb.CategoryBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.ejb.TaskBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Category;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Task;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.TaskStatus;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.persistence.Embeddable;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -95,6 +78,6 @@ public class BookListServlet extends HttpServlet {
         
         
         // Anfrage an die JSP weiterleiten
-        request.getRequestDispatcher("/WEB-INF/tasks/task_list.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/books/book_list.jsp").forward(request, response);
     }
 }

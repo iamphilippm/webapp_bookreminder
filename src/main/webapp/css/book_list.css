@@ -1,0 +1,14 @@
+/* 
+    Created on : Mar 27, 2019, 11:29:42 AM
+    Author     : D070694
+*/
+
+#search {
+    margin-bottom: 1rem;
+}
+
+td, th {
+    padding-right: 2em;
+    text-align: left;
+    vertical-align: baseline;
+}

@@ -1,12 +1,9 @@
 <%-- 
-    Copyright © 2018 Dennis Schulmeister-Zimolong
-
-    E-Mail: dhbw@windows3.de
-    Webseite: https://www.wpvs.de/
-
-    Dieser Quellcode ist lizenziert unter einer
-    Creative Commons Namensnennung 4.0 International Lizenz.
+    Document   : genre_list
+    Created on : Mar 27, 2019, 11:20:30 AM
+    Author     : D070694
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
@@ -19,7 +16,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/category_list.css"/>" />
+        <link rel="stylesheet" href="<c:url value="/css/genre_list.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="menu">
@@ -28,7 +25,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/list/"/>">Liste</a>
+            <a href="<c:url value="/app/books/list/"/>">Liste</a>
         </div>
     </jsp:attribute>
 

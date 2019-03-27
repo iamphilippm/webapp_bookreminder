@@ -11,7 +11,6 @@ package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.EntityBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.tasks.jpa.Category;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;

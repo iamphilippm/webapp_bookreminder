@@ -127,9 +127,6 @@ public class BookBean extends EntityBean<Book, Long> {
             query.where(p);
         }
         
-        //Path<User> test = from.get("owner").get("username");
-        // WHERE t.owner = :username 
-        
         p = cb.and(p, cb.equal(from.get("owner").get("username") , username.getUsername()));
         query.where(p);
         

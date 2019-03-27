@@ -69,6 +69,8 @@
         <role-name>app-user</role-name>
     </security-role>
     
+    <!-- ToDO Filter von Martin einbinden um auth-method FORM zu beeinflussen -->
+    
     <!--
         Definition der JSP-Dateien mit dem Loginformular und einer Fehlerseite,
         falls der Anwender sich vertippt.
