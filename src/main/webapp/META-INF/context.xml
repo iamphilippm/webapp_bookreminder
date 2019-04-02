@@ -5,8 +5,7 @@
   <!-- LockOutRealm: Sperrt den Benutzer nach zu vielen Fehlversuchen aus -->
   <Realm className="org.apache.catalina.realm.LockOutRealm">
     <!-- Anwendungsspezifischer Auth-Mechanismus -->
-    <Realm className="org.apache.catalina.realm.DataSourceRealm" dataSourceName="Default-Database-Unmanaged" 
-           roleNameCol="groupname" userCredCol="password_hash" userNameCol="username" userRoleTable="bookreminder.bookreminder_user_group" userTable="bookreminder.bookreminder_user">
+    <Realm className="org.apache.catalina.realm.DataSourceRealm" dataSourceName="Default-Database-Unmanaged" roleNameCol="groupname" userCredCol="password_hash" userNameCol="username" userRoleTable="bookreminder.bookreminder_user_group" userTable="bookreminder.bookreminder_user">
       <CredentialHandler algorithm="SHA-256" className="org.apache.catalina.realm.MessageDigestCredentialHandler"/>
     </Realm>
   </Realm>

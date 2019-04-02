@@ -56,12 +56,16 @@
                     <input type="text" name="book_title" value="${book_form.values["book_title"][0]}">
                 </div>
 
-                <label for="book_author">Autor:</label>
+                <label for="book_author">Autor:
+                <span class="required">*</span>
+                </label>
                 <div class="side-by-side">
                     <input type="text" name="book_author" value="${book_form.values["book_author"][0]}">
                 </div>
 
-                <label for="book_genre">Genre:</label>
+                <label for="book_genre">Genre:
+                <span class="required">*</span>
+                </label>
                 <div class="side-by-side">
                     <select name="book_genre">
                         <option value="">Bitte auswählen...</option>
@@ -74,7 +78,9 @@
                     </select>
                 </div>
 
-                <label for="book_medium">Medium:</label>
+                <label for="book_medium">Medium:
+                <span class="required">*</span>
+                </label>
                 <div class="side-by-side">
                     <select name="book_medium">
                         <option value="">Bitte auswählen...</option>
@@ -86,14 +92,14 @@
                     </select>
                 </div>
 
-                <label for="book_sumpages"> Seitenzahl [gesamt]:
+                <label for="book_sumpages"> Seitenzahl [gesamt]:</label>
                     <div class="side-by-side">
-                        <input name="book_sumpages" type="number" min="0" max="6000" step="1" value="0"></label>
+                        <input name="book_sumpages" type="number" min="0" max="6000" step="1" value="${book_form.values['book_sumpages'][0]}"></label>
                     </div> 
                     
-                <label for="book_curpages"> Seitenzahl [aktuell]:
+                    <label for="book_curpages"> Seitenzahl [aktuell]:</label>
                     <div class="side-by-side">
-                        <input name="book_curpages" type="number" min="0" max="6000" step="1" value="0"></label>
+                        <input name="book_curpages" type="number" min="0" max="6000" step="1" value="${book_form.values['book_curpages'][0]}"></label>
                     </div>
                     
                     <label for="book_comment">

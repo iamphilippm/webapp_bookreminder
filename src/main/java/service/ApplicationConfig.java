@@ -34,7 +34,6 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(service.BookFacadeREST.class);
-        resources.add(service.GenreFacadeREST.class);
         resources.add(service.UserFacadeREST.class);
     }
     

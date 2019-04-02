@@ -138,7 +138,7 @@ public class GenreListServlet extends HttpServlet {
                 continue;
             }
 
-            // Bei allen betroffenen Aufgaben, den Bezug zur Kategorie aufheben
+            // Bei allen betroffenen Büchern, den Bezug zur Genre aufheben
             List<Book> books = genre.getBooks();
 
             if (books != null) {

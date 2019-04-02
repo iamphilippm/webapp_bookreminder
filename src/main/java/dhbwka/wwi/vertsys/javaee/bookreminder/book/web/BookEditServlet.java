@@ -4,17 +4,14 @@ package dhbwka.wwi.vertsys.javaee.bookreminder.book.web;
  *
  * @author D070694
  */
-
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.WebUtils;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.FormValues;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.BookBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.GenreBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.UserBean;
-import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb.ValidationBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Medium;
-import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,7 +53,7 @@ public class BookEditServlet extends HttpServlet {
 
         Book book = this.getRequestedBook(request);
         request.setAttribute("edit", book.getId() != 0);
-                                
+
         if (session.getAttribute("book_form") == null) {
             // Keine Formulardaten mit fehlerhaften Daten in der Session,
             // daher Formulardaten aus dem Datenbankobjekt übernehmen
@@ -65,7 +62,7 @@ public class BookEditServlet extends HttpServlet {
 
         // Anfrage an die JSP weiterleiten
         request.getRequestDispatcher("/WEB-INF/books/book_edit.jsp").forward(request, response);
-        
+
         session.removeAttribute("book_form");
     }
 
@@ -120,20 +117,40 @@ public class BookEditServlet extends HttpServlet {
             } catch (NumberFormatException ex) {
                 // Ungültige oder keine ID mitgegeben
             }
+        } else {
+            errors.add("Bitte wähle eine Genre aus.");
         }
 
         try {
             book.setMedium(Medium.valueOf(medium));
         } catch (IllegalArgumentException ex) {
             errors.add("Das ausgewählte Medium ist nicht vorhanden.");
+
         }
-        
-        
-        book.setTitle(title);
-        book.setAuthor(author);
+
+        if (title != "") {
+            book.setTitle(title);
+        } else {
+            errors.add("Bitte gib einen Titel ein.");
+        }
+
+        if (author != "") {
+            book.setAuthor(author);
+        } else {
+            errors.add("Bitte gib einen Autor ein.");
+        }
+
         book.setComment(comment);
-        book.setTotal_pages(Integer.parseInt(sumpages));
-        book.setCurrent_page(Integer.parseInt(curpages));
+
+        int sumpages_int = Integer.parseInt(sumpages);
+        int curpages_int = Integer.parseInt(curpages);
+
+        if (curpages_int > sumpages_int) {
+            errors.add("Die aktuelle Seitenzahl darf nicht größer sein, als die maximale Seitenzahl.");
+        } else {
+            book.setTotal_pages(sumpages_int);
+            book.setCurrent_page(curpages_int);
+        }
 
         this.validationBean.validate(book, errors);
 
@@ -178,7 +195,6 @@ public class BookEditServlet extends HttpServlet {
         response.sendRedirect(WebUtils.appUrl(request, "/app/books/list/"));
     }
 
-   
     private Book getRequestedBook(HttpServletRequest request) {
         // Zunächst davon ausgehen, dass ein neuer Datensatz angelegt werden soll
         Book book = new Book();
@@ -207,7 +223,6 @@ public class BookEditServlet extends HttpServlet {
         return book;
     }
 
-    
     private FormValues createBookForm(Book book) {
         Map<String, String[]> values = new HashMap<>();
         int total = book.getTotal_pages();
@@ -236,13 +251,13 @@ public class BookEditServlet extends HttpServlet {
         values.put("book_author", new String[]{
             book.getAuthor()
         });
-        
+
         values.put("book_sumpages", new String[]{
-            book.toString(total)
-         });
-        
+            String.valueOf(book.getTotal_pages())
+        });
+
         values.put("book_curpages", new String[]{
-            book.toString(current)       
+            String.valueOf(book.getCurrent_page())
         });
 
         values.put("book_comment", new String[]{

@@ -40,23 +40,20 @@ public class Book implements Serializable {
     private long id;
 
     @Column(length = 64)
-    @NotNull(message = "Das Buch muss einen Titel haben.")
     private String title;
     
    // @Column(length = 64)
     @ManyToOne
-    @NotNull(message = "Das Buch muss einen Eigentümer haben.")
+    @NotNull
     private User owner;
 
     @Column(length = 64)
-    @NotNull(message = "Das Buch muss einen Autor haben.")
     private String author;
 
     @ManyToOne
     private Genre genre;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Medium medium;
 
     @Column(length = 64)
@@ -64,7 +61,7 @@ public class Book implements Serializable {
     private int total_pages;
 
     @Column(length = 64)
-    @NotNull(message = "Du musst angeben wie weit du schon gelesen hast.")
+    @NotNull(message = "Du musst angeben, wie weit du schon gelesen hast.")
     private int current_page;
 
     @Lob
@@ -156,11 +153,5 @@ public class Book implements Serializable {
 
     public String getComment(){
         return comment;
-    }
-
-    public String toString(int page) {
-        return Integer.toString(page);
-    }
-    //</editor-fold>
-    
+    }    
 }
