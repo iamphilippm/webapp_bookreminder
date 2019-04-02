@@ -10,6 +10,7 @@
 package dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBContext;
@@ -37,6 +38,10 @@ public class UserBean {
     public User getCurrentUser() {
         return this.em.find(User.class, this.ctx.getCallerPrincipal().getName());
     }
+    
+    public List<User> findAllUsers(){
+        return this.em.createQuery("SELECT u FROM User u").getResultList();
+    }
 
     /**
      *
@@ -53,6 +58,8 @@ public class UserBean {
         user.addToGroup("app-user");
         em.persist(user);
     }
+    
+    
 
     /**
      * Passwort ändern (ohne zu speichern)

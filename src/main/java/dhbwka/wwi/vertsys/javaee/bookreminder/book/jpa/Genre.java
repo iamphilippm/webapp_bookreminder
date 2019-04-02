@@ -22,11 +22,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Genres, die den Büchern zugeordnet werden können.
  */
 @Entity
+@XmlRootElement
 public class Genre implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -70,6 +73,7 @@ public class Genre implements Serializable {
         this.name = name;
     }
 
+    @XmlTransient
     public List<Book> getBooks() {
         return books;
     }

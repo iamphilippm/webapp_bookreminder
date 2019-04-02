@@ -23,11 +23,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Diese Klasse spezifiziert das Format von Büchern in der Datenbanktabelle
  */
 @Entity
+@XmlRootElement
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
