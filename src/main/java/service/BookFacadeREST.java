@@ -33,7 +33,7 @@ import service.dto.BookDTO;
  * @author D070495
  */
 @Stateless
-@Path("book")
+@Path("/api/book")
 public class BookFacadeREST extends AbstractFacade<Book> {
 
     @PersistenceContext(unitName = "default")
