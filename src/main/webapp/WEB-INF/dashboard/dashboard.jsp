@@ -1,11 +1,5 @@
 <%-- 
-    Copyright © 2019 Dennis Schulmeister-Zimolong
-
-    E-Mail: dhbw@windows3.de
-    Webseite: https://www.wpvs.de/
-
-    Dieser Quellcode ist lizenziert unter einer
-    Creative Commons Namensnennung 4.0 International Lizenz.
+Dashboard.jsp: 
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -33,6 +27,10 @@
 
         <div class="menuitem">
             <a href="<c:url value="/app/books/genres/"/>">Genre bearbeiten</a>
+        </div>
+        
+          <div class="menuitem">
+            <a href="<c:url value="/app/editProfile/"/>">Profil bearbeiten</a>
         </div>
     </jsp:attribute>
 
