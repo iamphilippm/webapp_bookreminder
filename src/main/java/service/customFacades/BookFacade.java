@@ -36,4 +36,11 @@ public class BookFacade {
         }).collect(Collectors.toList());
     }
     
+    public List<BookDTO> searchBooks(String search){
+        List<Book> books = bookBean.searchTitle(search);
+        return books.stream().map((book) -> {
+            return new BookDTO(book);
+        }).collect(Collectors.toList());
+    }
+    
 }
