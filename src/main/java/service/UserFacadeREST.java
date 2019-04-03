@@ -32,7 +32,7 @@ import service.dto.UserDTO;
  * @author D070495
  */
 @Stateless
-@Path("user")
+@Path("/api/user")
 public class UserFacadeREST extends AbstractFacade<User> {
 
     @PersistenceContext(unitName = "default")
