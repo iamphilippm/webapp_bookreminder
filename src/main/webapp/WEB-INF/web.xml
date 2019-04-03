@@ -6,7 +6,18 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     
-    
+    <filter>
+        <filter-name>BasicLoginFilter</filter-name>
+        <filter-class>dhbwka.wwi.vertsys.javaee.bookreminder.common.web.BasicLoginFilter</filter-class>
+        <init-param>
+            <param-name>role-names-comma-sep</param-name>
+            <param-value>app-user</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>BasicLoginFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
     
     <session-config>
         <session-timeout>

@@ -29,7 +29,7 @@ import javax.ws.rs.core.MediaType;
  * @author D070495
  */
 @Stateless
-@Path("genre")
+@Path("/api/genre")
 public class GenreFacadeREST extends AbstractFacade<Genre> {
 
     @PersistenceContext(unitName = "default")

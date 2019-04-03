@@ -36,4 +36,11 @@ public class UserFacade {
         }).collect(Collectors.toList());
     }
     
+    public List<UserDTO> searchUser(String search){
+        List<User> users = userBean.searchUser(search);
+        return users.stream().map((user) -> {
+            return new UserDTO(user);
+        }).collect(Collectors.toList());
+    }
+    
 }

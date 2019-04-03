@@ -39,6 +39,13 @@ public class UserBean {
         return this.em.find(User.class, this.ctx.getCallerPrincipal().getName());
     }
     
+        public List<User> searchUser(String search) {
+        return em.createQuery("SELECT u FROM User u WHERE u.vorname LIKE :search OR u.nachname LIKE :search")
+                 .setParameter("search", "%"+search+"%")
+                 .getResultList();
+        
+    }
+    
     public List<User> findAllUsers(){
         return this.em.createQuery("SELECT u FROM User u").getResultList();
     }

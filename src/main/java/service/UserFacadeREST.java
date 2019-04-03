@@ -23,6 +23,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import service.customFacades.UserFacade;
 import service.dto.UserDTO;
@@ -32,7 +33,7 @@ import service.dto.UserDTO;
  * @author D070495
  */
 @Stateless
-@Path("user")
+@Path("/api/user")
 public class UserFacadeREST extends AbstractFacade<User> {
 
     @PersistenceContext(unitName = "default")
@@ -83,6 +84,14 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Produces({MediaType.APPLICATION_JSON})
     public List<UserDTO> findAllDTO() {
         return userFacade.findAllDTO();
+    }
+    
+    @GET
+    @Path("search")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<UserDTO> searchUserDTO(@QueryParam("search") String search){
+        if(search == null) search = "";
+        return userFacade.searchUser(search);
     }
 
     @GET

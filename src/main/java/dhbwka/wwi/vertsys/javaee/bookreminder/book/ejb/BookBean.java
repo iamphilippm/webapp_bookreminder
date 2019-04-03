@@ -95,6 +95,10 @@ public class BookBean extends EntityBean<Book, Long> {
         return books;
     }
     
+    public List<Book> searchTitle(String search){
+        return em.createQuery("SELECT b FROM Book b WHERE b.title LIKE :search").setParameter("search", "%"+search+"%").getResultList();
+    }
+    
     public List<Book> searchAllBooksOfUser(String search,Genre genre, Medium medium, User username){
                 // Hilfsobjekt zum Bauen des Query
         CriteriaBuilder cb = this.em.getCriteriaBuilder();
