@@ -142,14 +142,18 @@ public class BookEditServlet extends HttpServlet {
 
         book.setComment(comment);
 
-        int sumpages_int = Integer.parseInt(sumpages);
-        int curpages_int = Integer.parseInt(curpages);
+        try {
+            int sumpages_int = Integer.parseInt(sumpages);
+            int curpages_int = Integer.parseInt(curpages);
 
-        if (curpages_int > sumpages_int) {
-            errors.add("Die aktuelle Seitenzahl darf nicht größer sein, als die maximale Seitenzahl.");
-        } else {
-            book.setTotal_pages(sumpages_int);
-            book.setCurrent_page(curpages_int);
+            if (curpages_int > sumpages_int) {
+                errors.add("Die aktuelle Seitenzahl darf nicht größer sein, als die maximale Seitenzahl.");
+            } else {
+                book.setTotal_pages(sumpages_int);
+                book.setCurrent_page(curpages_int);
+            }
+        } catch (NumberFormatException nfe) {
+            errors.add("Die Seitenzahlen dürfen nicht leer sein.");
         }
 
         this.validationBean.validate(book, errors);
