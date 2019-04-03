@@ -79,7 +79,7 @@ form label {
 }
 
 form label .required {
-    color: darkred;
+    color: black;
 }
 
 input,

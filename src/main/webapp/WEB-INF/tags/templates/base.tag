@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8" />
 
-        <title>Herzlich Willkommen im Bookreminder: ${title}</title>
+        <title>Bookreminder</title>
         
         <!-- https://pixabay.com/de/flach-design-symbol-icon-www-2126884/ -->
         <link rel="shortcut icon" href="<c:url value="/img/favicon.png"/>">

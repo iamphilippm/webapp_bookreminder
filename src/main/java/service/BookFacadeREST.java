@@ -84,6 +84,7 @@ public class BookFacadeREST extends AbstractFacade<Book> {
     public List<BookDTO> findAllDTO(){
         return bookFacade.findAll();
     }
+   
 
     @GET
     @Path("{from}/{to}")
