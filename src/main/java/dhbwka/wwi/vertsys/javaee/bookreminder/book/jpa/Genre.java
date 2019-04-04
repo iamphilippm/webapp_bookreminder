@@ -7,6 +7,14 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Das ist die eigentliche Datenbank-Klasse (Entity) "Genre".
+Hier werden relevante Felder definiert, mindestens ein Konstruktor geschrieben,
+sowie die Setter und Getter für die einzelnen Felder implementiert.
+Die Felder repräsentieren die spätere Datenbank für die Entity "Genre".
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa;
 
 import java.io.Serializable;

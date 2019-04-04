@@ -7,6 +7,14 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/**
+ * Kleine EJB, die dafür genutzt werden kann, die Werte einer Entity zu
+ * validieren, bevor diese gespeichert wird. Zwar validiert der Entity Manager
+ * die Bean beim Speichern ebenfalls, da das aber erst am Ende der Transaktion
+ * erfolgt, ist es schwer, rechtzeitig darauf zu reagieren.
+ */
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb;
 
 import java.util.ArrayList;
@@ -17,12 +25,7 @@ import javax.ejb.Stateless;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-/**
- * Kleine EJB, die dafür genutzt werden kann, die Werte einer Entity zu
- * validieren, bevor diese gespeichert wird. Zwar validiert der Entity Manager
- * die Bean beim Speichern ebenfalls, da das aber erst am Ende der Transaktion
- * erfolgt, ist es schwer, rechtzeitig darauf zu reagieren.
- */
+
 @Stateless
 public class ValidationBean {
     

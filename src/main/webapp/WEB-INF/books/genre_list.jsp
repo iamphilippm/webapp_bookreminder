@@ -4,6 +4,8 @@
     Author     : D070694
 --%>
 
+<!-- Anzeige der Liste zum Anlegen, Bearbeiten und Löschen der Genres -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

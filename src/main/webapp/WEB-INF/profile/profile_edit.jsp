@@ -4,6 +4,8 @@
     Author     : D070415
 --%>
 
+<!-- Parallel zur Registrieren-Seite. Hier kann der Nutzer seine bisherigen Angaben (Name, Nachname, Passwort) ändern. -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

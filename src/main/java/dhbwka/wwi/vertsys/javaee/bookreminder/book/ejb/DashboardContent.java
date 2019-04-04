@@ -7,6 +7,13 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Fachliche Anwendungslogik, die der Erzeugung des Dashboards dient. Hier gibt es Methoden, die einzelne Kacheln
+basierend auf der Nutzerinteraktion erzeugen und neue Rubriken für neu angelegte Genres erstellen.
+Die Ansicht (View) wird hier nicht programmiert.
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;

@@ -21,6 +21,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author D070694
  */
+
+/*
+Dieses Servlet dient als Controller für die Listenansicht der Genres. Das JSP stellt dem Benutzer
+über ein Eingabefeld und einen Button die Möglichkeit bereit, Genres neu anzulegen, aber auch markierte zu löschen.
+Das Servlet reagiert auf diese Benutzerinteraktionen und liefert entsprechenden Content für die Listenansicht an das 
+genrelist.jsp. Demzufolge sind hier die doGet() und doPost() Methoden implementiert, die auf Browseranfragen reagieren.
+Hier sind auch die Methoden implementiert, die bei Button-Klicks aufgerufen werden und Änderungen in den Datenbanken zur
+Folge haben. Dazu dienen die zuvor programmierten EJB innerhalb der hier programmierten Methoden.
+*/
+
 @WebServlet(urlPatterns = {"/app/books/genres/"})
 public class GenreListServlet extends HttpServlet {
 

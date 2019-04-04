@@ -20,8 +20,13 @@ import javax.servlet.http.HttpServletResponse;
  * @author D070495
  */
 
-//url geändert lol
-//@WebServlet(name = "BookListServlet", urlPatterns = {"/app/tasks/list/"})
+/*
+Dieses Servlet dient als Controller für die Listenansicht der Bücher. Das JSP stellt dem Benutzer
+über verschiedene Felder die Möglichkeit bereit Bücher zu suchen bzw. zu filtern. Dieses Servlet
+reagiert auf diese Benutzerinteraktionen und liefert entsprechende Ergebnisse für die Listenansicht an das 
+booklist.jsp. Demzufolge sind hier die doGet() und doPost() Methoden implementiert, die auf Browseranfragen reagieren.
+*/
+
 @WebServlet(name = "BookListServlet", urlPatterns = {"/app/books/list/"})
 public class BookListServlet extends HttpServlet {
  @EJB
@@ -37,16 +42,13 @@ public class BookListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Verfügbare Genren und Medien für die Suchfelder ermitteln
         request.setAttribute("genres", this.genreBean.findAllSorted());
         request.setAttribute("mediums", Medium.values());
 
-        // Suchparameter aus der URL auslesen
         String searchText = request.getParameter("search_text");
         String searchGenre = request.getParameter("search_genre");
         String searchMedium = request.getParameter("search_medium");
 
-        // Anzuzeigende Aufgaben suchen
         Genre genre = null;
         Medium medium = null;
 
@@ -67,8 +69,6 @@ public class BookListServlet extends HttpServlet {
 
         }
 
-        //List<Book> books = this.bookBean.search(searchText, genre, medium);
-        //List<Book> books2 = this.bookBean.findByUsername(this.userBean.getCurrentUser().getUsername());
         List<Book> books = this.bookBean.searchAllBooksOfUser(searchText, genre, medium, this.userBean.getCurrentUser());
         
         

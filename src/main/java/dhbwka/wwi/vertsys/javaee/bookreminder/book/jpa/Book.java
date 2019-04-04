@@ -7,6 +7,14 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Das ist die eigentliche Datenbank-Klasse (Entity) "Buch".
+Hier werden relevante Felder definiert, mindestens ein Konstruktor geschrieben,
+sowie die Setter und Getter für die einzelnen Felder implementiert.
+Die Felder repräsentieren die spätere Datenbank für die Entity "Book".
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
@@ -25,9 +33,6 @@ import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Diese Klasse spezifiziert das Format von Büchern in der Datenbanktabelle
- */
 @Entity
 @XmlRootElement
 public class Book implements Serializable {
