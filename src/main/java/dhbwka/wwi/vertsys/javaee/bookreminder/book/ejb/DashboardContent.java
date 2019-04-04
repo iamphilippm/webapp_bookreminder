@@ -94,12 +94,12 @@ public class DashboardContent implements DashboardContentProvider {
         }
 
         // Eine Kachel für alle Bücher in dieser Rubrik erzeugen
-        DashboardTile tile = this.createTile(genre, null, "Alle", cssClass + " status-all", "calendar");
+        DashboardTile tile = this.createTile(genre, null, "Alle", cssClass + " medium-all", "calendar");
         section.getTiles().add(tile);
 
         // Ja Medium eine weitere Kachel erzeugen
         for (Medium medium : Medium.values()) {
-            String cssClass1 = cssClass + " status-" + medium.toString().toLowerCase();
+            String cssClass1 = cssClass + " medium-" + medium.toString().toLowerCase();
             String icon = "";
 
             switch (medium) {

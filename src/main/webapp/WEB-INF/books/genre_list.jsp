@@ -44,25 +44,25 @@
             <%-- CSRF-Token --%>
             <input type="hidden" name="csrf_token" value="${csrf_token}">
 
-            <%-- Feld zum Anlegen einer neuen Kategorie --%>
+            <%-- Feld zum Anlegen einer neuen Genre --%>
             <div class="column margin">
                 <label for="j_username">Neues Genre anlegen:</label>
-                <input type="text" name="name" value="${categories_form.values["name"][0]}">
+                <input type="text" name="name" value="${genres_form.values["name"][0]}">
                 <button type="submit" name="action" value="create" class="icon-pencil">
                     Anlegen
                 </button>
             </div>
 
             <%-- Fehlermeldungen --%>
-            <c:if test="${!empty categories_form.errors}">
+            <c:if test="${!empty genres_form.errors}">
                 <ul class="errors margin">
-                    <c:forEach items="${categories_form.errors}" var="error">
+                    <c:forEach items="${genres_form.errors}" var="error">
                         <li>${error}</li>
                         </c:forEach>
                 </ul>
             </c:if>
 
-            <%-- Vorhandene Kategorien --%>
+            <%-- Vorhandene Genres --%>
             <c:choose>
                 <c:when test="${empty genres}">
                     <p>

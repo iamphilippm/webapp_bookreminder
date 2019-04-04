@@ -77,9 +77,9 @@
     -->
     <security-role>
         <description>
-            Ein Benutzer der jTodo-Beispielanwendung. Jeder Benutzer muss
+            Ein Benutzer der bookreminder-Beispielanwendung. Jeder Benutzer muss
             mindestens diese Rolle besitzen, um sich einloggen und neue
-            Aufgaben anlegen zu können.
+            Bücher anlegen zu können.
         </description>
         <role-name>app-user</role-name>
     </security-role>

@@ -84,11 +84,11 @@ Creative Commons Namensnennung 4.0 International Lizenz.
     background-color: #FBF6D5;
 }
 
-.tile.status-all .content {
+.tile.medium-all .content {
     background-color: #f5f5f5;
     font-weight: bold;
 }
 
-.tile.status-all .content:hover {
+.tile.medium-all .content:hover {
     background-color: #e6e6e6;
 }

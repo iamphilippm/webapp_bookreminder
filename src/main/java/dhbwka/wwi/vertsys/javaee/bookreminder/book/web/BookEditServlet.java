@@ -99,7 +99,7 @@ public class BookEditServlet extends HttpServlet {
     }
 
     /**
-     * Aufgerufen in doPost(): Neue oder vorhandene Aufgabe speichern
+     * Aufgerufen in doPost(): Neues oder vorhandenes Buch speichern
      *
      * @param request
      * @param response

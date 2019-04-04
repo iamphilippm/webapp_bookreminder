@@ -47,7 +47,7 @@ public class GenreListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Alle vorhandenen Kategorien ermitteln
+        // Alle vorhandenen Genres ermitteln
         request.setAttribute("genres", this.genreBean.findAllSorted());
 
         // Anfrage an dazugerhörige JSP weiterleiten
@@ -97,7 +97,7 @@ public class GenreListServlet extends HttpServlet {
         Genre genre = new Genre(name);
         List<String> errors = this.validationBean.validate(genre);
 
-        // Neue Kategorie anlegen
+        // Neue Genre anlegen
         if (errors.isEmpty()) {
             this.genreBean.saveNew(genre);
         }
@@ -116,7 +116,7 @@ public class GenreListServlet extends HttpServlet {
     }
 
     /**
-     * Aufgerufen in doPost(): Markierte Kategorien löschen
+     * Aufgerufen in doPost(): Markierte Genres löschen
      *
      * @param request
      * @param response
@@ -126,16 +126,16 @@ public class GenreListServlet extends HttpServlet {
     private void deleteGenres(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Markierte Kategorie IDs auslesen
+        // Markierte Genres IDs auslesen
         String[] genreIds = request.getParameterValues("genre");
 
         if (genreIds == null) {
             genreIds = new String[0];
         }
 
-        // Kategorien löschen
+        // Genres löschen
         for (String genreId : genreIds) {
-            // Zu löschende Kategorie ermitteln
+            // Zu löschende Genre ermitteln
             Genre genre;
 
             try {

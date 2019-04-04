@@ -47,7 +47,6 @@ public class BookBean extends EntityBean<Book, Long> {
     /**
      * Alle Bücher eines Benutzers, nach Titel sortiert zurückliefern.
      * @param username Nickname
-     * @return Alle Aufgaben des Benutzers
      */
     public List<Book> findByUsername(String username) {
         return em.createQuery("SELECT b FROM Book b WHERE b.owner = :username ORDER BY b.title")
