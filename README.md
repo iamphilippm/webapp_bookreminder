@@ -1,4 +1,4 @@
-Beispielanwendung "jTodo"
+Beispielanwendung "bookreminder"
 =========================
 
 Kurzbeschreibung
@@ -24,6 +24,7 @@ wie folgt strukturiert:
  * **Persistence Entities** modellieren das Datenmodell und werden für sämtliche Datenbankzugriffe genutzt.
  * **Java Server Pages** sowie verschiedene statische Dateien bilden die View und generieren den
    auf dem Bildschirm angezeigten HTML-Code.
+ * **REST-Webservice** ermöglicht die Darstellung einiger Nutzdaten im JSON Format über eine definierte API Schnittstelle
 
 Folgende Entwicklungswerkzeuge kommen dabei zum Einsatz:
 
@@ -33,85 +34,9 @@ Folgende Entwicklungswerkzeuge kommen dabei zum Einsatz:
  * [TomEE:](https://tomee.apache.org/) Applikationsserver zum lokalen Testen der Anwendung
  * [Derby:](https://db.apache.org/derby/) In Java implementierte SQL-Datenbank zum Testen der Anwendung
 
-Screenshots
------------
-
-<table style="max-width: 100%;">
-    <tr>
-        <td>
-            <a href="screenshot1.png">
-                <img src="screenshot1.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-        <td>
-            <a href="screenshot2.png">
-                <img src="screenshot2.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Login
-        </td>
-        <td>
-            Registrierung
-        </td>
-    </tr>
-</table>
-
-<table style="max-width: 100%;">
-    <tr>
-        <td>
-            <a href="screenshot3.png">
-                <img src="screenshot3.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-        <td>
-            <a href="screenshot4.png">
-                <img src="screenshot4.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Dashboard
-        </td>
-        <td>
-            Liste mit Aufgaben
-        </td>
-    </tr>
-</table>
-
-<table style="max-width: 100%;">
-    <tr>
-        <td>
-            <a href="screenshot5.png">
-                <img src="screenshot5.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-        <td>
-            <a href="screenshot6.png">
-                <img src="screenshot6.png" style="display: block; width: 100%;" />
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Aufgabe bearbeiten
-        </td>
-        <td>
-            Kategorien bearbeiten
-        </td>
-    </tr>
-</table>
-
 Copyright
 ---------
 
-Dieses Projekt ist lizenziert unter
-[_Creative Commons Namensnennung 4.0 International_](http://creativecommons.org/licenses/by/4.0/)
+Dieses Projekt ist nicht lizenziert.
 
-© 2018 – 2019 Dennis Schulmeister-Zimolong <br/>
-
-E-Mail: [dhbw@windows3.de](mailto:dhbw@windows3.de) <br/>
-Webseite: https://www.wpvs.de
+© 2019 Ann-Christin Gehring, Halil Özcelik, Philipp Müller <br/>
