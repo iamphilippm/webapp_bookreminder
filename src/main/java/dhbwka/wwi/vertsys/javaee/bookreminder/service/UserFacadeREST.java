@@ -7,9 +7,9 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package service;
+package dhbwka.wwi.vertsys.javaee.bookreminder.service;
 
-import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
+import dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa.User;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -25,80 +25,79 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import service.customFacades.BookFacade;
-import service.dto.BookDTO;
+import dhbwka.wwi.vertsys.javaee.bookreminder.service.customFacades.UserFacade;
+import dhbwka.wwi.vertsys.javaee.bookreminder.service.dto.UserDTO;
 
 /**
  *
  * @author D070495
  */
 @Stateless
-@Path("/api/book")
-public class BookFacadeREST extends AbstractFacade<Book> {
+@Path("/api/user")
+public class UserFacadeREST extends AbstractFacade<User> {
 
     @PersistenceContext(unitName = "default")
     private EntityManager em;
-    
-    @EJB
-    BookFacade bookFacade;
 
-    public BookFacadeREST() {
-        super(Book.class);
+    @EJB
+    UserFacade userFacade; 
+    
+    public UserFacadeREST() {
+        super(User.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Book entity) {
+    public void create(User entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Book entity) {
+    public void edit(@PathParam("id") String id, User entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Long id) {
+    public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Book find(@PathParam("id") Long id) {
+    public User find(@PathParam("id") String id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML})
-    public List<Book> findAll() {
+    public List<User> findAll() {
         return super.findAll();
     }
     
-    @GET
+    @GET 
     @Produces({MediaType.APPLICATION_JSON})
-    public List<BookDTO> findAllDTO(){
-        return bookFacade.findAll();
+    public List<UserDTO> findAllDTO() {
+        return userFacade.findAllDTO();
     }
     
     @GET
     @Path("search")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<BookDTO> searchBooksDTO(@QueryParam("search") String search){
+    public List<UserDTO> searchUserDTO(@QueryParam("search") String search){
         if(search == null) search = "";
-        return bookFacade.searchBooks(search);
+        return userFacade.searchUser(search);
     }
-   
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Book> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<User> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

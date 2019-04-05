@@ -7,7 +7,7 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package service.customFacades;
+package dhbwka.wwi.vertsys.javaee.bookreminder.service.customFacades;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.BookBean;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import service.dto.BookDTO;
+import dhbwka.wwi.vertsys.javaee.bookreminder.service.dto.BookDTO;
 
 /**
  *

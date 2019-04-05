@@ -7,7 +7,7 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package service.dto;
+package dhbwka.wwi.vertsys.javaee.bookreminder.service.dto;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
