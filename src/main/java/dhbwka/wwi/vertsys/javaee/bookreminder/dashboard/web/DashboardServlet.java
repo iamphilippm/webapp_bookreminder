@@ -7,6 +7,12 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+
+/**
+ * Servlet für die Startseite mit dem Übersichts-Dashboard.
+ */
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.dashboard.web;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.dashboard.ejb.DashboardContentProvider;
@@ -21,9 +27,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet für die Startseite mit dem Übersichts-Dashboard.
- */
 @WebServlet(urlPatterns = {"/app/dashboard/"})
 public class DashboardServlet extends HttpServlet {
 

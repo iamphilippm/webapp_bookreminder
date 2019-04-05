@@ -7,6 +7,9 @@
     Dieser Quellcode ist lizenziert unter einer
     Creative Commons Namensnennung 4.0 International Lizenz.
 --%>
+
+<!-- Login Seite, die zum jeweiligen ersten Start der Anwendung aufgerufen wird.-->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

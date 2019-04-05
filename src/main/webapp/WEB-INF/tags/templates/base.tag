@@ -8,6 +8,10 @@
     Dieser Quellcode ist lizenziert unter einer
     Creative Commons Namensnennung 4.0 International Lizenz.
 --%>
+
+<!-- Base-Tag, welches die übergeordnete Menü-/Navigationsleiste anzeigt 
+und den Hauptcontent entsprechend basierend auf der Userinteraktion ersetzt. -->
+
 <%@tag pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

@@ -21,6 +21,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author D070694
  */
+
+/*
+Dieses Servlet dient als Controller für die Listenansicht der Genres. Das JSP stellt dem Benutzer
+über ein Eingabefeld und einen Button die Möglichkeit bereit, Genres neu anzulegen, aber auch markierte zu löschen.
+Das Servlet reagiert auf diese Benutzerinteraktionen und liefert entsprechenden Content für die Listenansicht an das 
+genrelist.jsp. Demzufolge sind hier die doGet() und doPost() Methoden implementiert, die auf Browseranfragen reagieren.
+Hier sind auch die Methoden implementiert, die bei Button-Klicks aufgerufen werden und Änderungen in den Datenbanken zur
+Folge haben. Dazu dienen die zuvor programmierten EJB innerhalb der hier programmierten Methoden.
+*/
+
 @WebServlet(urlPatterns = {"/app/books/genres/"})
 public class GenreListServlet extends HttpServlet {
 
@@ -37,7 +47,7 @@ public class GenreListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Alle vorhandenen Kategorien ermitteln
+        // Alle vorhandenen Genres ermitteln
         request.setAttribute("genres", this.genreBean.findAllSorted());
 
         // Anfrage an dazugerhörige JSP weiterleiten
@@ -87,7 +97,7 @@ public class GenreListServlet extends HttpServlet {
         Genre genre = new Genre(name);
         List<String> errors = this.validationBean.validate(genre);
 
-        // Neue Kategorie anlegen
+        // Neue Genre anlegen
         if (errors.isEmpty()) {
             this.genreBean.saveNew(genre);
         }
@@ -106,7 +116,7 @@ public class GenreListServlet extends HttpServlet {
     }
 
     /**
-     * Aufgerufen in doPost(): Markierte Kategorien löschen
+     * Aufgerufen in doPost(): Markierte Genres löschen
      *
      * @param request
      * @param response
@@ -116,16 +126,16 @@ public class GenreListServlet extends HttpServlet {
     private void deleteGenres(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Markierte Kategorie IDs auslesen
+        // Markierte Genres IDs auslesen
         String[] genreIds = request.getParameterValues("genre");
 
         if (genreIds == null) {
             genreIds = new String[0];
         }
 
-        // Kategorien löschen
+        // Genres löschen
         for (String genreId : genreIds) {
-            // Zu löschende Kategorie ermitteln
+            // Zu löschende Genre ermitteln
             Genre genre;
 
             try {

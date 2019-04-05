@@ -4,6 +4,8 @@
     Author     : D070694
 --%>
 
+<!-- Anzeige der Liste angelegter Bücher und anderer Medien -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

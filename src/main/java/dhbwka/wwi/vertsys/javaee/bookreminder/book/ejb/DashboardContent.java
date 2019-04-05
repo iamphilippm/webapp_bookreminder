@@ -7,6 +7,13 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Fachliche Anwendungslogik, die der Erzeugung des Dashboards dient. Hier gibt es Methoden, die einzelne Kacheln
+basierend auf der Nutzerinteraktion erzeugen und neue Rubriken für neu angelegte Genres erstellen.
+Die Ansicht (View) wird hier nicht programmiert.
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;
@@ -87,12 +94,12 @@ public class DashboardContent implements DashboardContentProvider {
         }
 
         // Eine Kachel für alle Bücher in dieser Rubrik erzeugen
-        DashboardTile tile = this.createTile(genre, null, "Alle", cssClass + " status-all", "calendar");
+        DashboardTile tile = this.createTile(genre, null, "Alle", cssClass + " medium-all", "calendar");
         section.getTiles().add(tile);
 
         // Ja Medium eine weitere Kachel erzeugen
         for (Medium medium : Medium.values()) {
-            String cssClass1 = cssClass + " status-" + medium.toString().toLowerCase();
+            String cssClass1 = cssClass + " medium-" + medium.toString().toLowerCase();
             String icon = "";
 
             switch (medium) {

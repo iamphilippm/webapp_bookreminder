@@ -4,6 +4,17 @@ package dhbwka.wwi.vertsys.javaee.bookreminder.book.web;
  *
  * @author D070694
  */
+
+/*
+Dieses Servlet regiert auf den HTTP Request zum Anlegen eines neuen Buches.
+Es stellt den Content (das Formular) bereit, in dem der User ein neues Buch anlegen
+oder vorhandene bearbeiten bzw. löschen kann.
+Deshalb sind hier auch die Methoden doGet() und doPost implementiert,
+die klassischerweise zur Browserkommunikation dienen.
+Einzelne Methoden sind inklusive Bedingungen (Errorhandling) programmiert.
+Letztendlich stellt das Servlet die Daten für das bookedit.jsp bereit.
+*/
+
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.WebUtils;
 import dhbwka.wwi.vertsys.javaee.bookreminder.common.web.FormValues;
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb.BookBean;
@@ -88,7 +99,7 @@ public class BookEditServlet extends HttpServlet {
     }
 
     /**
-     * Aufgerufen in doPost(): Neue oder vorhandene Aufgabe speichern
+     * Aufgerufen in doPost(): Neues oder vorhandenes Buch speichern
      *
      * @param request
      * @param response

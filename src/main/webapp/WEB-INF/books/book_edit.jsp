@@ -4,6 +4,8 @@
     Author     : D070694
 --%>
 
+<!-- Anzeige des Formulars zum Anlegen und Bearbeiten eines Buches -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

@@ -1,6 +1,9 @@
 <%-- 
 Dashboard.jsp: 
 --%>
+
+<!-- Anzeige des Dashboards mit den Kacheln für die einzelnen Medien sowie (falls vorhanden) mehrerer Genres -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>

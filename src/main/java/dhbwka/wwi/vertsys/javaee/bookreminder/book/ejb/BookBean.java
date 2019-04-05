@@ -7,6 +7,14 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Model, welches die fachliche Anwendungslogik der Bücher kapselt.
+Hier sind Methoden definiert, die es ermoglichen Bücher unter verschiedenen
+Voraussetzungen aus der Datenbank auszulesen und entsprechend im Browser anzuzeigen.
+Die konkrete Anzeige (View) wird hier nicht programmiert
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
@@ -39,7 +47,6 @@ public class BookBean extends EntityBean<Book, Long> {
     /**
      * Alle Bücher eines Benutzers, nach Titel sortiert zurückliefern.
      * @param username Nickname
-     * @return Alle Aufgaben des Benutzers
      */
     public List<Book> findByUsername(String username) {
         return em.createQuery("SELECT b FROM Book b WHERE b.owner = :username ORDER BY b.title")

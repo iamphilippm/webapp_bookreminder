@@ -7,16 +7,20 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+ * Abstrakte Basisklasse für EJBs, die einfach nur Standardmethoden zum Lesen
+ * und Schreiben eines Entity-Typs bietet.
+ */
+
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.common.ejb;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- * Abstrakte Basisklasse für EJBs, die einfach nur Standardmethoden zum Lesen
- * und Schreiben eines Entity-Typs bietet.
- *
+/*
  * @param <Entity> Basisklasse der Entität
  * @param <EntityId> Datentyp oder Klasse für die Schlüsselwerte
  */

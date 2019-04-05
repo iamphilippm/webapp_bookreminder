@@ -7,6 +7,12 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
+
+/*
+Fachliche Anwendungslogik zur Erstellung der Genres-Liste. Es werden Inhalte aus der Genre-DB
+ausgelesen und bereitgestellt. Die eigentliche View der Daten wird hier nicht programmiert.
+*/
+
 package dhbwka.wwi.vertsys.javaee.bookreminder.book.ejb;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Genre;

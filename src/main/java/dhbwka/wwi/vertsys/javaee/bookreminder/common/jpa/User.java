@@ -2,6 +2,10 @@
  * Copyright © 2019 Ann-Christin Gehring, Halil Oezcelik, Philipp Mueller
  * 
  */
+
+/**
+ * Datenbankklasse für einen Benutzer.
+ */
 package dhbwka.wwi.vertsys.javaee.bookreminder.common.jpa;
 
 import dhbwka.wwi.vertsys.javaee.bookreminder.book.jpa.Book;
@@ -27,9 +31,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- * Datenbankklasse für einen Benutzer.
- */
+
 @Entity
 @Table(name = "BOOKREMINDER_USER")
 @XmlRootElement
